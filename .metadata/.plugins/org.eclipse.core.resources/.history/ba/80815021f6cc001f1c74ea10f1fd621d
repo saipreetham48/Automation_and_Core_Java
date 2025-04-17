@@ -1,0 +1,16 @@
+package selenideDemo;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+public class AlertTest {
+
+	public static void main(String[] args) {
+		open("https://mail.rediff.com");
+		$(By.name("proceed")).click();
+		Alert alert=switchTo().alert();
+		System.out.println(alert.getText());
+		alert.accept();
+	}
+
+}

@@ -1,0 +1,54 @@
+package com.SeleniumPractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LocatorsDemo {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		/*
+		 * Identify the webpage elements with the help of locators 1.Id 2.name
+		 * 3.className 4.linkText 5.partialLinkText 6.tagName 7.xpath 8.css selector
+		 * 
+		 */
+		WebDriverManager.firefoxdriver().setup();
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://github.com/login");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		// using id locator
+		driver.findElement(By.id("login_field"));
+		Thread.sleep(3000);
+		// using name locator
+		driver.findElement(By.name("password"));
+		Thread.sleep(3000);
+		// using classname locator
+		driver.findElement(By.className("octicon octicon-mark-github"));
+		Thread.sleep(3000);
+		// using linktext locator
+		driver.findElement(By.linkText("Create an account"));
+		Thread.sleep(3000);
+		// using partiallinktext locator
+		driver.findElement(By.partialLinkText("password?"));
+		Thread.sleep(3000);
+		// using tagname locator
+		driver.findElement(By.tagName("h1"));
+		Thread.sleep(3000);
+		// using xpath locator
+		driver.findElement(By.xpath("//label[co]ntains(text(),'Username')"));
+		Thread.sleep(3000);
+		// using css selector locator
+		driver.findElement(By.cssSelector("input[type=submit]"));
+		Thread.sleep(3000);
+		driver.manage().window().minimize();
+		Thread.sleep(3000);
+		driver.quit();
+
+	}
+
+}

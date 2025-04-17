@@ -1,0 +1,47 @@
+package com.SeleniumPractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TextBoxDemo {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		/*
+		 * enter the data in text box---sendkeys() to remove the data entered in text
+		 * box---clear() to check wheather the textbox is displayed or
+		 * not---isDisplayed() to check wheather the textbox is enabled or
+		 * not---isEnabled() to print the data in console---getAttribute()
+		 */
+		//WebDriverManager.firefoxdriver().setup();
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://github.com/login");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		WebElement textBoxText = driver.findElement(By.id("login_field"));
+		if (textBoxText.isDisplayed()) {
+			if (textBoxText.isEnabled()) {
+				textBoxText.sendKeys("Sai@gmail.com");
+//				Thread.sleep(3000);
+//				textBoxText.sendKeys("and nothing");
+				Thread.sleep(3000);
+
+				String getText = textBoxText.getAttribute("value");
+				System.out.println("The text displayed in textbox is:" + getText);
+				Thread.sleep(3000);
+				textBoxText.clear();
+
+				driver.manage().window().minimize();
+				driver.quit();
+
+			} else
+				System.err.println("Textbox is not enabled");
+
+		} else
+			System.err.println("Text box is not displayed");
+
+	}
+
+}

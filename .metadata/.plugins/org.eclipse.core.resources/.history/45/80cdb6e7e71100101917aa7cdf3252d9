@@ -1,0 +1,19 @@
+package interviewPreparation;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class InterviewLinkdn2 {
+
+	public static void main(String[] args) {
+//		Input: hackerearth
+//		Output: hackert
+		String Input="hackerearth";
+		Set<Character> s=new LinkedHashSet<Character>();
+		for (Character ch : Input.toCharArray()) {
+			s.add(ch);
+		}
+		System.out.println(s);
+	}
+
+}

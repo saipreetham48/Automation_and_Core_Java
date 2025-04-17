@@ -1,0 +1,45 @@
+package com.SeleniumPractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class HTMLControls {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		/*
+		 * link,button,radio button,checkbox---common operation is click()
+		 */
+		//WebDriverManager.firefoxdriver().setup();
+		WebDriver driver=new FirefoxDriver();
+		driver.get("https://www.hyrtutorials.com/p/basic-controls.html");
+		driver.manage().window().maximize();
+		driver.findElement(By.id("femalerb")).click();; //radiobutton
+		Thread.sleep(3000);
+		driver.findElement(By.id("registerbtn")).click();;//button
+		Thread.sleep(3000);
+		System.out.println(driver.findElement(By.id("msg")).getText());//to get the text in console
+		driver.findElement(By.id("englishchbx")).click();;//checkbox
+		Thread.sleep(3000);
+		
+		WebElement engChkBox=driver.findElement(By.id("englishchbx"));
+		if (engChkBox.isSelected()) {
+			engChkBox.click();
+			
+		}
+		else
+			System.out.println("Checkbox is not selected");
+		Thread.sleep(3000);
+		driver.findElement(By.linkText("Click here to navigate to the home page")).click();;
+		Thread.sleep(3000);
+		driver.quit();
+		
+		
+		
+
+	}
+	
+
+}

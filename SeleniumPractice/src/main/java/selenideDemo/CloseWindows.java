@@ -1,0 +1,26 @@
+package selenideDemo;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.closeWindow;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.title;
+public class CloseWindows {
+
+	public static void main(String[] args) throws InterruptedException {
+		open("https://opensource-demo.orangehrmlive.com/");
+		System.out.println(title());
+		$("input[placeholder='Username']").setValue("Admin");
+		$("input[placeholder='Password']").setValue("admin123");
+		$("button[type='Submit']").click();
+		Thread.sleep(3000);
+		System.out.println(title());
+		switchTo().window(0);
+		Thread.sleep(8000);
+		closeWindow();//driver.close()
+		closeWebDriver();//driver.quit()
+		
+		
+	}
+
+}

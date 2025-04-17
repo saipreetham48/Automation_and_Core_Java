@@ -1,0 +1,165 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import stepDefinitions.Utils;
+
+public class BasePage {
+	private WebDriver driver = null;
+	private WebDriverWait wait = null;
+	Utils utl=new Utils();
+	JavascriptExecutor jsExecutor=(JavascriptExecutor) driver;
+	public BasePage() {
+		this.driver=utl.getDriver();
+		this.wait=utl.getTimeoutWait();
+	}
+
+	
+
+	public void launchUrl(String url) {
+		driver.get(url);
+	}
+
+	public void killDriver() {
+		driver.quit();
+	}
+
+	public void closeDriver() {
+		driver.close();
+	}
+
+	public WebElement WaitForElementToBeClickable(By by) {
+		return wait.until(ExpectedConditions.elementToBeClickable(by));
+	}
+
+	public WebElement WaitForElementToBeClickable(By by, int timeout) {
+		return wait.until(ExpectedConditions.elementToBeClickable(by));
+	}
+
+	public WebElement waitForVisibilityOfElement(By by) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+
+	public WebElement waitForVisibilityOfElement(By by, int timeout) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+
+	public boolean isDisplayed(By by) {
+		boolean flag = false;
+		try {
+			flag = waitForVisibilityOfElement(by).isDisplayed();
+
+		} catch (Exception e) {
+		}
+		return flag;
+	}
+
+	public boolean isDisplayed(By by, int timeout) {
+		boolean flag = false;
+		try {
+			flag = waitForVisibilityOfElement(by, timeout).isDisplayed();
+		} catch (Exception e) {
+		}
+		return flag;
+	}
+
+	public boolean isEnabled(By by) {
+		boolean flag = false;
+		try {
+			flag = WaitForElementToBeClickable(by).isEnabled();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return flag;
+	}
+
+	public boolean isEnabled(By by, int timeout) {
+		boolean flag = false;
+		try {
+			flag = WaitForElementToBeClickable(by, timeout).isEnabled();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return flag;
+	}
+
+	public void click(By by) {
+		WaitForElementToBeClickable(by).click();
+	}
+
+	public void sendKeys(By by, String data) {
+		WaitForElementToBeClickable(by).sendKeys(data);
+	}
+
+	public void getText(By by) {
+		waitForVisibilityOfElement(by).getText();
+	}
+
+	public void switchToFrame(By by) {
+		driver.switchTo().frame(waitForVisibilityOfElement(by));
+	}
+
+	public void switchToFrame(By by, int timeout) {
+		driver.switchTo().frame(waitForVisibilityOfElement(by, timeout));
+	}
+
+	public void switchToDefault(By by) {
+		driver.switchTo().defaultContent();
+
+	}
+
+	public void selectByIndex(By by, int index) {
+		Select dropdrownOptions = new Select(waitForVisibilityOfElement(by));
+		dropdrownOptions.selectByIndex(index);
+	}
+
+	public void selectByText(By by, String text) {
+		Select dropdownOptions = new Select(waitForVisibilityOfElement(by));
+		dropdownOptions.selectByVisibleText(text);
+	}
+
+	public void selectByValue(By by, String value) {
+		Select dropdownOptions = new Select(waitForVisibilityOfElement(by));
+		dropdownOptions.selectByValue(value);
+	}
+
+	public void dragAndDrop(By source, By dest) {
+		Actions act = new Actions(driver);
+		act.dragAndDrop(waitForVisibilityOfElement(source), waitForVisibilityOfElement(dest)).perform();
+	}
+
+	public void acceptAlerts(By by) {
+		driver.switchTo().alert().accept();
+
+	}
+
+	public void dismissAlerts(By by) {
+		driver.switchTo().alert().dismiss();
+	}
+	//jsclick
+	//excecute js 
+	public void jsClick(By by) {
+	 
+	  
+	  jsExecutor.executeScript("arguments[0].click()", driver.findElement(by));
+	  
+	}
+	public void highlighting(By by) {
+		
+		jsExecutor.executeScript("arguments[0].setAttribute('style','border:5px blue solid;background:yellow;')", driver.findElement(by));
+	}
+	public void scrollIntoView(By by) {
+		WebElement element=driver.findElement(by);
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()", element);
+	}
+	
+
+}

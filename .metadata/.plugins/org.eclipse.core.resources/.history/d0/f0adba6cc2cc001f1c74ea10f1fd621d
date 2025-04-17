@@ -1,0 +1,13 @@
+package selenideDemo;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class FirstScript {
+	
+	@
+	public void GoogleSearchTest() {
+		open("https://www.google.com/");
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package selenideDemo;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+public class NavigationDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		open("https://www.google.com");
+		System.out.println(title());
+		open("https://www.flipkart.com");
+		System.out.println(title());
+		back();
+		System.out.println(title());
+		forward();
+		System.out.println(title());
+		Thread.sleep(4000);
+		refresh();
+		System.out.println(title());
+		
+		
+		
+	}
+
+}

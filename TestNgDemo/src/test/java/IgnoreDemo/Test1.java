@@ -1,0 +1,25 @@
+package IgnoreDemo;
+
+import org.testng.annotations.Ignore;
+import org.testng.annotations.Test;
+
+public class Test1 {
+  @Test
+  public void test1() {
+	  System.out.println("Test1");
+  }
+  @Ignore
+  @Test
+  public void test2() {
+	  System.out.println("Test2");
+  }
+  @Test
+  public void test3() {
+	  System.out.println("Test3");
+  }
+  @Ignore
+  @Test
+  public void test4() {
+	  System.out.println("Test4");
+  }
+}

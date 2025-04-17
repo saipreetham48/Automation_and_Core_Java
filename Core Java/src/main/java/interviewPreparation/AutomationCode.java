@@ -1,0 +1,28 @@
+package interviewPreparation;
+
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+
+public class AutomationCode {
+
+	public static void main(String[] args) {
+		//input:automation output=automin
+		String str="automation";
+		LinkedHashSet<Character> set=new LinkedHashSet<Character>();
+		List<Character> list=new LinkedList<Character>();
+		for (Character ch : str.toCharArray()) {
+			if(set.add(ch)) {
+				list.add(ch);
+			}
+		}
+		String output="";
+		for (Character character : list) {
+			output+=character;
+		}
+		
+		System.out.println("Output:"+output);
+		
+	}
+
+}

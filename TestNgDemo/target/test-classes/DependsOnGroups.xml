@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<test name="dependsongroups">
+		<groups>
+			<dependencies>
+				<group depends-on="sanity" name="smoke" />
+				<group depends-on="regression" name="sanity" />
+
+			</dependencies>
+		</groups>
+		<classes>
+			<class name="dependencyTests.DependencyOnGroups">
+
+			</class>
+		</classes>
+
+	</test>
+
+</suite>
+
+<!-- test suite>tets>test steps -->

@@ -1,0 +1,20 @@
+package sujithQns;
+
+import java.util.Hashtable;
+import java.util.Map;
+
+public class RemoveArrayDuplicates {
+	
+
+	public static void main(String[] args) {
+		int arr[]= {45,76,98,76,5,45};
+		Map<Integer, Integer> m=new Hashtable<Integer, Integer>();
+		for (Integer i : arr) {
+			m.put(i,m.getOrDefault(i, 0)+1 );
+			
+		}
+		System.out.println(m);
+		
+	}
+
+}

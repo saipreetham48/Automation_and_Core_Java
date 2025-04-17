@@ -1,0 +1,49 @@
+package ScenerioBased;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
+public class AmazonAddToCart {
+
+	public static void main(String[] args) {
+
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		WebDriver driver = new EdgeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(13));
+	
+		driver.get("https://www.amazon.in/?tag=msndeskstdin-21&ref=pd_sl_4bzeat7dnl_e&adgrpid=1326012680679100&hvadid=82876055443053&hvnetw=o&hvqmt=e&hvbmt=be&hvdev=c&hvlocint=&hvlocphy=155300&hvtargid=kwd-82876733542853:loc-90&hydadcr=5619_2377285");
+		WebElement element = driver.findElement(By.cssSelector("[id=twotabsearchtextbox]"));
+		element.sendKeys("iphone 15");
+		driver.findElement(By.cssSelector("[id=nav-search-submit-button]")).click();
+		WebElement el = driver.findElement(By.xpath("//span[text()='Apple iPhone 15 (128 GB) - Blue']"));
+		el.click();
+		String parentHandle = driver.getWindowHandle();
+
+		Set<String> handles = driver.getWindowHandles();
+		for (String handle : handles) {
+			if (!parentHandle.equals(handle)) {
+
+				driver.switchTo().window(handle);
+				driver.findElement(By.id("add-to-cart-button")).click();
+			}
+		}
+//		Set<String> handles1 = driver.getWindowHandles();
+//		Iterator<String> itr=handles1.iterator();
+//		while(itr.hasNext()) {
+//			String win1=itr.next();
+//			
+//		}
+		//task:open 3browsers,swith to mew browser.
+		driver.quit();
+	}
+
+}

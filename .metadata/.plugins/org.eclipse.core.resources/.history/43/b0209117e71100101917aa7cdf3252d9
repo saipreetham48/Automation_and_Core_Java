@@ -1,0 +1,27 @@
+package interviewPreparation;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class InterviewLinkdn {
+
+	public static void main(String[] args) {
+//		Input: hackerearth
+//		Output: h a e r
+		String input="hackerearth";
+		Map<Character, Integer> m=new LinkedHashMap<Character, Integer>();
+		for (Character ch : input.toCharArray()) {
+			m.put(ch, m.getOrDefault(ch, 0)+1);
+		}
+		Set<Entry<Character,Integer>> entries=m.entrySet();
+		for (Entry<Character, Integer> entry : entries) {
+			if(entry.getValue()>=2) {
+				System.out.print(entry.getKey()+" ");
+			}
+		}
+	
+	}
+
+}

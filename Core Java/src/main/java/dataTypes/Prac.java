@@ -1,0 +1,20 @@
+package dataTypes;
+
+public class Prac {
+
+	public static void main(String[] args) {
+		
+		  // TODO Auto-generated method stub 
+		//int a='A'+5+87956243;
+		int a='A'/'B'+5675457*546; 
+		System.out.println(a);
+		 
+		int ab=10;
+		int bd=40;
+		//ab + --bd -ab++  + ab - Bd++ +bd  =10 + 39 - 10 +11 -39 + 40
+		System.out.println(ab + --bd - ab++ + ab - bd++ +bd);
+		
+
+	}
+
+}

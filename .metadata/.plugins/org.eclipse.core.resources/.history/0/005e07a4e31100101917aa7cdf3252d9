@@ -1,0 +1,9 @@
+package interviewPreparation;
+
+public class InterviewLinkdn {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome"+10+20);
+	}
+
+}

@@ -1,0 +1,37 @@
+package com.SeleniumPractice;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class JsExecutrorDemo {
+	public static void main(String[] args) {
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");
+		JavascriptExecutor jsExcecutor=(JavascriptExecutor) driver;
+		//using id
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.getElementById('email');");
+//		element.sendKeys("using id");
+		//using name
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.getElementsByName('email')[0];");
+//		element.sendKeys("using name");
+		//using classname
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.getElementsByClassName('inputtext _55r1 _6luy')[0]");
+//		element.sendKeys("using classname");
+		//using tagname
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.getElementsByTagName('input')[2];");
+//		element.sendKeys("using tagname");
+		//using css selector
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.querySelector('#email')");
+//		element.sendKeys("using cssselector");
+		//using xpath
+//		WebElement element=(WebElement) jsExcecutor.executeScript("return document.evaluate(\"//input[@id='email']\",document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue;");
+//		element.sendKeys("using xpathaxes");
+		jsExcecutor.executeScript("return document.evaluate(\"//input[@id='email']\",document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.value='saireddy';");
+
+		driver.quit();
+	}
+
+}

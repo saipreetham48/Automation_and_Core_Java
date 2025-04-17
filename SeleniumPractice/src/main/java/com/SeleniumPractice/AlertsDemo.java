@@ -1,0 +1,77 @@
+package com.SeleniumPractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class AlertsDemo {
+
+	public static void main(String[] args) throws Exception {
+		//WebDriverManager.edgedriver().setup();
+		ChromeDriver drivesr=new ChromeDriver();
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.hyrtutorials.com/p/alertsdemo.html");
+		Thread.sleep(2000);
+		//alert box
+//		System.out.println(driver.findElement(By.id("output")).getText());
+//		driver.findElement(By.id("alertBox")).click();
+//		System.out.println(driver.switchTo().alert().getText());
+//		Thread.sleep(2000);
+//		driver.switchTo().alert().accept();
+//		Thread.sleep(2000);
+//		System.out.println(driver.findElement(By.id("output")).getText());
+//		
+		//confirmbox
+		//accept
+//		System.out.println(driver.findElement(By.id("output")).getText());
+//		driver.findElement(By.id("confirmBox")).click();
+//		System.out.println(driver.switchTo().alert().getText());
+//		Thread.sleep(2000);
+//		driver.switchTo().alert().accept();
+//		System.out.println(driver.findElement(By.id("output")).getText());
+//		System.out.println();
+//		//dismiss
+//		System.out.println(driver.findElement(By.id("output")).getText());
+//		driver.findElement(By.id("confirmBox")).click();
+//		System.out.println(driver.switchTo().alert().getText());
+//		Thread.sleep(2000);
+//		driver.switchTo().alert().dismiss();
+//		System.out.println(driver.findElement(By.id("output")).getText());
+		
+		//promptbox
+		System.out.println(driver.findElement(By.id("output")).getText());
+		Thread.sleep(2000);
+		driver.findElement(By.id("promptBox")).click();
+		Thread.sleep(2000);
+		System.out.println(driver.switchTo().alert().getText());
+		Thread.sleep(2000);
+		driver.switchTo().alert().sendKeys("sai tspr");
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(2000);
+		System.out.println(driver.findElement(By.id("output")).getText());
+		
+		//rejection or cancel
+		System.out.println(driver.findElement(By.id("output")).getText());
+		driver.findElement(By.id("promptBox")).click();
+		Thread.sleep(2000);
+		System.out.println(driver.switchTo().alert().getText());
+		driver.switchTo().alert().sendKeys("sai tspr");
+		Thread.sleep(2000);
+		driver.switchTo().alert().dismiss();
+		Thread.sleep(2000);
+		System.out.println(driver.findElement(By.id("output")).getText());
+		
+		driver.quit();
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

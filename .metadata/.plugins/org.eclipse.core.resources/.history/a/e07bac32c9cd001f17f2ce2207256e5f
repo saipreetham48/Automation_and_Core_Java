@@ -1,0 +1,19 @@
+package sujithQns;
+
+import java.util.Arrays;
+
+public class ReverseAnArray {
+
+	public static void main(String[] args) {
+		int arr[]= {43,86,5,9,85,34};
+		int rev[]=new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = arr.length-1; j >0; j--) {
+				rev[0]=arr[j];
+			}
+		}
+		System.out.println(Arrays.toString(rev));
+
+	}
+
+}

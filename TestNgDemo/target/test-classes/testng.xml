@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Login">
+		<classes>
+			<class name="testNgPractice.OpenHRM">
+				<methods>
+					<include name="browserLaunch" />
+					<include name="enterLoginDetails" />
+					<include name="verifyLogin" />
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+	<test name="Myinfo">
+		<classes>
+			<class name="testNgPractice.OpenHRM">
+				<methods>
+					<include name="browserLaunch" />
+					<include name="enterLoginDetails" />
+					<include name="navigatetoMyinfo" />
+					<include name="verifyMyinfo" />
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+	<test name="FirstScripts">
+		<classes>
+			<class name="testNgPractice.FirstScript">
+				<methods>
+					<include name="googleSearch" />
+					<include name="facebookSearch" />
+
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+
+</suite>
+
+<!-- test suite>tets>test steps -->

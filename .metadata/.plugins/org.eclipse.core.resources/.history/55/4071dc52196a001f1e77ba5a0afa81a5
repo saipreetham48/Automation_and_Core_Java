@@ -1,0 +1,17 @@
+package encapsulation;
+
+public class EncapsulationDemo {
+	int a;
+
+	public int getA() {
+		return a;
+	}
+
+	private void setA() {
+		this.a = 10;
+	}
+
+	/*
+	 * private int setAdd() { this.a = 10; return a; }
+	 */
+}

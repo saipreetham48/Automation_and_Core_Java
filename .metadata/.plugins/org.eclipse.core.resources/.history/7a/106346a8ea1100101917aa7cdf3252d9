@@ -1,0 +1,14 @@
+package interviewPreparation;
+
+public class InterviewLinkdn5 {
+
+	public static void main(String[] args) {
+//		Input: Hello world
+//		Output: World Hello
+		String input="Hello world";
+		String str1=input.substring(6, input.length()-1);
+		String str2=input.substring(0,(input.length()-str1.length()));
+		System.out.println("Output:"+str1+str2);
+	}
+
+}

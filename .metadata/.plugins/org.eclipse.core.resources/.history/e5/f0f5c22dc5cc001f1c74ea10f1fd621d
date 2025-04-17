@@ -1,0 +1,21 @@
+package selenideDemo;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Condition;
+
+import static com.codeborne.selenide.Condition.*;
+
+public class FirstScript {
+	
+
+	public static void main(String[] args) {
+		open("https://www.google.com/");
+		$(By.name("q")).setValue("hyr tutorials");
+		$(By.name("btnK")).click();
+		$(By.xpath("//a[@id='logo']")).should(Condition.appear);
+		
+	}
+
+}
